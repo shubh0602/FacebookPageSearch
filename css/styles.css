@@ -1,0 +1,116 @@
+﻿body {
+    background-color: #f2f2f2;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#search-result-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    #search-result-container ul li .search-img {
+        margin-right: 10px;
+    }
+
+    #search-result-container ul li {
+        border-bottom: 1px dotted #999;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
+        #search-result-container ul li .header p {
+            margin-left: 60px;
+        }
+
+        #search-result-container ul li .footer {
+            margin-left: 60px;
+        }
+
+        #search-result-container ul li.no-data {
+            text-align: center;
+            border-bottom: none;
+        }
+
+.widget.panel {
+    overflow: hidden;
+    border: 1px solid #d0d0d0;
+}
+
+.half-float {
+    position: relative;
+    margin-bottom: 65px;
+}
+
+    .half-float .half-float-bottom, .half-float .half-float-top {
+        position: absolute;
+        left: 50%;
+        bottom: -60px;
+        width: 120px;
+        height: 120px;
+        margin-left: -60px;
+        z-index: 2;
+    }
+
+.thumb128 {
+    width: 128px !important;
+    height: 128px !important;
+}
+
+.half-float + * {
+    margin-top: -55px;
+    padding-top: 65px;
+}
+
+.m0 {
+    margin: 0 !important;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+.panel-widget-footer div span {
+    font-size: 30px;
+}
+
+.panel-widget-footer .fav-icon {
+    cursor: pointer;
+}
+
+    .panel-widget-footer .fav-icon:hover {
+        color: #1fb25a;
+    }
+
+.panel-widget-footer .fav {
+    color: green;
+}
+
+.row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    border: 1px solid #d0d0d0;
+}
+
+html.loading {
+    /* Replace #333 with the background-color of your choice */
+    /* Replace loading.gif with the loading image of your choice */
+    background: #333 url('../img/loading.gif') no-repeat 50% 50%;
+
+    /* Ensures that the transition only runs in one direction */
+    -webkit-transition: background-color 0;
+    transition: background-color 0;
+}
+
+html.loading body {
+    /* Make the contents of the body opaque during loading */
+    opacity: 0.5;
+
+    /* Ensures that the transition only runs in one direction */
+    -webkit-transition: opacity 0;
+    transition: opacity 0;
+}
