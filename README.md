@@ -13,3 +13,13 @@ I created this application to search thru Facebook Pages using the graph api and
     - util.js   // utility code e.g. custom sort on Array.
 
 ```
+
+### Prerequisites :
+* Generate Access Token [here](https://developers.facebook.com/tools/accesstoken/) or follow the article from [smashballoon](https://smashballoon.com/custom-facebook-feed/access-token/)
+
+* Goto main.js and replace your token 
+```javascript
+ var $accessToken = "ACCESS_CODE_HERE",
+```
+
+Run the application!
