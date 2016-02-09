@@ -2,7 +2,7 @@ var fbSearch = fbSearch || {};
 
 (function (fbSearch) {
     "use strict";
-    
+
     fbSearch.Page = function () {
 
         /* Private Variable Declaration */
@@ -33,46 +33,12 @@ var fbSearch = fbSearch || {};
             addEvent($filterFav, 'click', filterFav);
         };
 
-        // Common method to trigger AJAX calls when required.
-        function ajax(url, callback, type, async) {
-            async = async || true;
-            type = type || "GET";
-
-            var xmlhttp;
-            if (window.XMLHttpRequest) {
-                // IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // IE7-
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    if (xmlhttp.status == 200) {
-                        if (xmlhttp.responseText) {
-                            callback(JSON.parse(xmlhttp.responseText));
-                        }
-                        else {
-                            console.log('no records found');
-                        }
-                    }
-                    else {
-                        alert('Error occured. Please try again')
-                    }
-                }
-            };
-            xmlhttp.onerror = function (err) {
-                console.log(err);
-            };
-            xmlhttp.open(type, url, async);
-            xmlhttp.send();
-        };
 
         // Functionality to Search Facebook Pages
         function searchPages(searchstring) {
             fbSearch.Loader.show();
             clearResult();
-            ajax($baseUrl + "search?q=" + searchstring + "&type=page&access_token=" + $accessToken + "&fields=id,name,picture,about,description,category,link,likes", receivePageList)
+            fbSearch.ajaxRequest($baseUrl + "search?q=" + searchstring + "&type=page&access_token=" + $accessToken + "&fields=id,name,picture,about,description,category,link,likes", receivePageList);
         };
 
         // Action performed when FB returns the object with Page Details
@@ -108,8 +74,7 @@ var fbSearch = fbSearch || {};
             if (text === '') {
                 alert("Please enter valid search quesry");
                 return false;
-            }
-            else {
+            } else {
                 return true;
             }
         }
@@ -137,7 +102,7 @@ var fbSearch = fbSearch || {};
                     var $d1 = document.createElement('div'),
                         $d1Img = document.createElement('img'),
                         $d1div = document.createElement('div'),
-                            $d1divImg = document.createElement('img');
+                        $d1divImg = document.createElement('img');
 
                     $d1.className = 'half-float';
                     $d1Img.src = 'img/bg3.jpg';
@@ -213,8 +178,7 @@ var fbSearch = fbSearch || {};
                     $row.appendChild($col);
                 }
                 $ul.appendChild($row);
-            }
-            else {
+            } else {
 
                 // When no data - add empty div to display custom message
                 var $liEmpty = document.createElement('li');
@@ -237,8 +201,9 @@ var fbSearch = fbSearch || {};
 
             if (e.target.classList.contains('fav')) {
                 e.target.classList.remove('fav');
+            } else {
+                e.target.classList.add('fav');
             }
-            else { e.target.classList.add('fav'); }
 
             if (e.target.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes.length > 0) {
                 id = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('input')[0].value;
@@ -249,8 +214,7 @@ var fbSearch = fbSearch || {};
                     $searchResult[i].isfav = !$searchResult[i].isfav;
                     if ($searchResult[i].isfav) {
                         $filteredList.push($searchResult[i]);
-                    }
-                    else {
+                    } else {
                         $filteredList.splice($searchResult[i], 1);
                     }
                 }
