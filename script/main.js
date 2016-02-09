@@ -1,4 +1,4 @@
-﻿var fbSearch = fbSearch || {};
+var fbSearch = fbSearch || {};
 
 (function (fbSearch) {
     "use strict";
@@ -6,7 +6,7 @@
     fbSearch.Page = function () {
 
         /* Private Variable Declaration */
-        var $accessToken = "ACCESS_CODE_HERE",
+        var $accessToken = "422844521144379|tep2pW6z17sY4I4FGjJQW3h6Y3Q",
             $baseUrl = "https://graph.facebook.com/",
             $btnSearch = document.getElementById("btnSearch"),
             $txtSearch = document.getElementById("txtSearch"),
